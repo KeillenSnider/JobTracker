@@ -3,6 +3,33 @@
 import sqlite3
 import datetime
 
+
+#This will be a users table
+def users_table():
+
+    #Open/Create the data base file
+    connection = sqlite3.connect("jobs.db")
+
+    #Creates a cursor so that you can run SQL commands
+    cursor = connection.cursor()
+
+    #This section will create the database that will be used and set up the columns for the data
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            password_hash TEXT NOT NULL,
+            account_type TEXT DEFAULT 'regular'
+        )
+    """)
+
+    #Saves the changes to the database file
+    connection.commit()
+
+    #Closes the file
+    connection.close()
+
+
 #Function to setup the database table
 def setup_database():
 
@@ -26,11 +53,21 @@ def setup_database():
         )
     """)
 
+    #Need to alter the table for user id and it needs a try so it does not crash after the change is made
+    try:
+        cursor.execute("ALTER TABLE jobs ADD COLUMN user_id INTEGER")
+        connection.commit()
+    except:
+        pass
+
     #Saves the changes to the database file
     connection.commit()
 
     #Closes the file
     connection.close()
+
+    #Try and create the table so you don't have to call it somewhere else
+    users_table()
 
 
 #This will be used to add all the data to the table by the user

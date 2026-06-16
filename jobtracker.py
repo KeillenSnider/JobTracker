@@ -8,7 +8,11 @@ def add_job_call():
     
     #Ask for all information
     company = input("Enter the company name: ")
+    while not company:
+        company = input("Company name cannot be empty. Please enter the company name: ")
     role = input("Enter job title: ")
+    while not role:
+        role = input("Job title cannot be empty. Please enter the job title: ")
     location = input("Enter the location of the buisness: ")
     status = input("Enter the status of the application (press Enter for 'Applied'): ") or "Applied"
     date_applied = input("Enter the date applied (YYYY-MM-DD) or press Enter for today: ") or str(datetime.date.today())

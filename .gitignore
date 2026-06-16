@@ -1,3 +1,5 @@
 jobs.db
 __pycache__/
-gitignore
+*.pyc
+.env
+flask_session/

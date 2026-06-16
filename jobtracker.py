@@ -30,8 +30,19 @@ def add_job_call():
 
 #This will bring up all jobs in the table
 def view_jobs():
+
+    #Choice of how to sort the jobs
+    print("How would you like to sort the jobs?")
+    print("1. By date applied")
+    print("2. By company name")
+    print("3. By status")
+    print("4. By ID")
+
+    #Get the sort option from the user
+    sort_by = input("Enter your choice (1-4): ")
+
     #Get a list of tuples
-    jobs = database.get_all_jobs()
+    jobs = database.get_all_jobs(sort_by)
 
     #Check if the list has jobs in it
     if not jobs:

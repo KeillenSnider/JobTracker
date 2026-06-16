@@ -57,7 +57,7 @@ def add_job(company,role,location,status,date_applied,notes,url):
 
 
 #This function will return all jobs in the table
-def get_all_jobs():
+def get_all_jobs(sort_by = "4"):
 
     #Open/Create the data base file
     connection = sqlite3.connect("jobs.db")
@@ -65,8 +65,19 @@ def get_all_jobs():
     #Creates a cursor so that you can run SQL commands
     cursor = connection.cursor()
 
-    #Get all the information from the table
-    cursor.execute("SELECT * FROM jobs")
+    #Get all the information from the table based on the Sort_By
+    if sort_by == "1":
+        cursor.execute("SELECT * FROM jobs ORDER BY date_applied ASC")
+    elif sort_by == "2":
+        cursor.execute("SELECT * FROM jobs ORDER BY company ASC")
+    elif sort_by == "3":
+        cursor.execute("SELECT * FROM jobs ORDER BY status ASC")
+    elif sort_by == "4":
+        cursor.execute("SELECT * FROM jobs ORDER BY id ASC")
+    else:
+        print("Invalid sort option. Defaulting to sorting by ID.")
+        cursor.execute("SELECT * FROM jobs ORDER BY id ASC")
+
 
     #Now get the table from jobs
     table = cursor.fetchall()

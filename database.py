@@ -2,7 +2,10 @@
 
 import sqlite3
 import datetime
+import bcrypt
 
+
+#____________________________________________________________________________________________________________________________________
 
 #This will be a users table
 def users_table():
@@ -29,6 +32,75 @@ def users_table():
     #Closes the file
     connection.close()
 
+
+#Register a new user
+def register_user(username, password):
+    
+    #Open/Create the data base file
+    connection = sqlite3.connect("jobs.db")
+
+    #Creates a cursor so that you can run SQL commands
+    cursor = connection.cursor()
+
+    #Hash the password using bcrypt and salt is so that identical passwords get hashed to different values
+    password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+    #Insert the new user into the users table and see if the username is taken
+    try:
+
+        cursor.execute("""
+            INSERT INTO users (username, password_hash) VALUES (?, ?)
+        """, (username, password_hash))
+        connection.commit()
+        connection.close()
+        print("User registered successfully.")
+        return True
+    except:
+        connection.close()
+        print("Username already taken. Please choose a different username.")
+        return False
+    
+
+
+#Where login will be handled and the password will be checked
+def login_user(username, password):
+
+    connection = sqlite3.connect("jobs.db")
+    cursor = connection.cursor()
+
+    #Get all usernames and make sure the one they type is real
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    connection.close()
+
+    #If no user is found end the function and ask they to register
+    if not user:
+        print("Username not found. Please register first.")
+        return False    
+    
+    #Check the password
+    #user[2] because password is in the 2nd column of the table
+    stored_hash = user[2]
+    #hashes the password they entered and checks it with the stored hash to see if it maches
+    return bcrypt.checkpw(password.encode('utf-8'), stored_hash)
+
+
+#Gets all the users data from the table and returns it
+def get_user(username):
+
+    connection = sqlite3.connect("jobs.db")
+    cursor = connection.cursor()
+
+    #Get all the data for the user and return it
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    connection.close()
+    return user
+
+
+
+
+#____________________________________________________________________________________________________________________________________
 
 #Function to setup the database table
 def setup_database():
@@ -163,6 +235,7 @@ def delete_job(job_id):
     #Closes the file
     connection.close()
 
+#____________________________________________________________________________________________________________________________________
 
 #Used so only when this file is ran it will work not if it is called in another file
 if __name__ == "__main__":

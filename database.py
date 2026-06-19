@@ -143,7 +143,7 @@ def setup_database():
 
 
 #This will be used to add all the data to the table by the user
-def add_job(company,role,location,status,date_applied,notes,url):
+def add_job(company,role,location,status,date_applied,notes,url, user_id = None):
     
     #Open/Create the data base file
     connection = sqlite3.connect("jobs.db")
@@ -155,8 +155,8 @@ def add_job(company,role,location,status,date_applied,notes,url):
     #Uses ? for no SQL injection
     cursor.execute("""
     
-        INSERT INTO jobs(company,role,location,status,date_applied,notes,url) VALUES(?,?,?,?,?,?,?)
-    """, (company,role,location,status,date_applied,notes,url))
+        INSERT INTO jobs(company,role,location,status,date_applied,notes,url, user_id) VALUES(?,?,?,?,?,?,?,?)
+    """, (company,role,location,status,date_applied,notes,url, user_id))
 
     #Saves the changes to the database file
     connection.commit()

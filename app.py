@@ -188,4 +188,5 @@ def delete(job_id):
 #Used so only when this file is ran it will work not if it is called in another file
 if __name__ == "__main__":
     #Debug helps with development but make sure it is off when it is live
-    app.run(debug=False)
+    #Put in .env file so it is not showing and only I can change it and it is secure
+    app.run(debug= os.getenv('DEBUG', 'False') == 'True')

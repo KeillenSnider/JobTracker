@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <title>JobTracker Register</title>
+
+    <!--Used to have the most amount characters so everyone can view it-->
+    <meta charset = "UTF-8">
+    <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
+    <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+</head>
+
+<body>
+    <!--Header for the register page-->
+    <h1>JobTracker Register</h1>
+
+    <!--Error message if it is passed in and make it red-->
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+
+    <!--POST so it is secure and not showing in the url and action login is for the route used in app.py to log in the user-->
+    <form method = "POST" action = "/register">
+
+        <!-- Label gives and id then tells the user what it is for -->
+         <label for = "username" >Username:</label>
+        <br>
+         <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
+         <input type = "text" id = "username" name  = "username" required>
+        <br>
+         <!-- Label for the password-->
+          <label for = "password" >Password:</label>
+        <br>
+          <!--Type as password makes it to were it shows up as dots so no one can see whaty is typed-->
+          <input type = "password" id = "password" name = "password" required>
+        <br>
+
+        <!-- Button to submit the form-->
+         <button type = "submit">Register</button>
+
+    </form>
+
+
+    <!--Link for if they already have an account-->
+    <p>Already have an account? <a href = "/login">Login here</a></p>
+
+
+
+
+
+
+</body>
+</html>

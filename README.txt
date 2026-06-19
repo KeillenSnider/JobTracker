@@ -7,3 +7,11 @@ HOW TO RUN IT:
   OR you can use the website with the try now button on my main page
 WHAT I LEARNED: 
   I leaned how to use SQLite and make a functioning user interface and keep data accessible when you re-run the program.
+
+
+
+DIFFERNT FILES:
+  Templates - All HTML
+  app.py - Web app
+  jobtracker.py - Terminal app
+  database.py - Database

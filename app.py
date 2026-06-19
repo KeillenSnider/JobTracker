@@ -161,7 +161,7 @@ def update(job_id):
     if request.method == 'POST':
 
         #Get the data from the user to update
-        new_status = request.form['status'] or "Applied"
+        new_status = request.form['status']
         new_notes = request.form['notes']
         new_url = request.form['url']
 

@@ -163,9 +163,10 @@ def update(job_id):
         #Get the data from the user to update
         new_status = request.form['status'] or "Applied"
         new_notes = request.form['notes']
+        new_url = request.form['url']
 
         #update the database
-        database.update_job(job_id, new_status, new_notes)
+        database.update_job(job_id, new_status, new_notes, new_url)
 
         #Go back to the dashboard
         return redirect(url_for('dashboard'))

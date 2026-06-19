@@ -200,7 +200,7 @@ def get_all_jobs(sort_by = "4", user_id = None):
 
 
 #Will update the columns in the database
-def update_job(job_id, new_status, new_notes):
+def update_job(job_id, new_status, new_notes, new_url = None):
 
     #Open/Create the data base file
     connection = sqlite3.connect("jobs.db")
@@ -208,7 +208,7 @@ def update_job(job_id, new_status, new_notes):
     #Creates a cursor so that you can run SQL commands
     cursor = connection.cursor()
 
-    cursor.execute("UPDATE jobs SET status = ?, notes = ? WHERE id = ?",(new_status, new_notes, job_id))
+    cursor.execute("UPDATE jobs SET status = ?, notes = ?, url = ? WHERE id = ?",(new_status, new_notes, new_url, job_id))
 
     #Saves the changes to the database file
     connection.commit()

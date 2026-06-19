@@ -1,12 +1,19 @@
 # This is the brain of Flask and with stgart the web server, define routes, and handle the logic of the web app
 
 #Flask for the app, render templates for getting html in templates, redirect for auto taking to next page, url for so nothing breaks
-# request for getting if it is a post or get request 
-from flask import Flask, render_template, redirect, url_for, request
+# request for getting if it is a post or get request, Sessions for keeping track if a user is logged in on every page
+from flask import Flask, render_template, redirect, url_for, request, session
 import database
+from datetime import timedelta
 
 #This starts the web app. __name__ is the current file, app is what routes will attach to and Flask is the framework
 app = Flask(__name__)
+
+#Gives 30 minutes of session time before it logs out the user for being inactive
+app.permanent_session_lifetime = timedelta(minutes = 30)
+
+app.secret_key = "change_this_to_something_random_before_going_live"
+
 
 #Make sure the database is set up before the website starts
 database.setup_database()
@@ -35,6 +42,13 @@ def login():
 
         #check if they match the database
         if database.login_user(username, password):
+
+            #This starts the timer for the session so they will be logged out after 30 minutes of inactivity
+            session.permanent = True
+
+            #This keeps the username and proof they are logged in on every page.
+            session['username'] = username
+
             #If a match is found send them to the dashboard
             return redirect(url_for('dashboard'))
         
@@ -75,7 +89,10 @@ def register():
 
 @app.route('/dashboard')
 def dashboard():
-    return "Dash coming soon"
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    else:
+        return "Dash soon"
 
 
 

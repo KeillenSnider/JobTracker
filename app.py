@@ -5,6 +5,9 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 import database
 from datetime import timedelta, datetime
+from dotenv import load_dotenv
+import os
+
 
 #This starts the web app. __name__ is the current file, app is what routes will attach to and Flask is the framework
 app = Flask(__name__)
@@ -12,7 +15,9 @@ app = Flask(__name__)
 #Gives 30 minutes of session time before it logs out the user for being inactive
 app.permanent_session_lifetime = timedelta(minutes = 30)
 
-app.secret_key = "change_this_to_something_random_before_going_live"
+#Gets the key
+load_dotenv()
+app.secret_key = os.getenv('SECRET_KEY')
 
 
 #Make sure the database is set up before the website starts

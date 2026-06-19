@@ -1,0 +1,47 @@
+<!--Code for the Update page-->
+
+
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <title>JobTracker Update</title>
+
+    <!--Used to have the most amount characters so everyone can view it-->
+    <meta charset = "UTF-8">
+    <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
+    <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+</head>
+
+<body>
+
+    <!--Header for the update page with there name-->
+    <h1>JobTracker Update Job</h1>
+
+
+    <!--POST so it is secure and not showing in the url and action register is for the route used in app.py to register the user-->
+    <form method = "POST" action = "/update/{{job_id}}">
+
+        <!-- Label gives and id then tells the user what it is for -->
+        <label for = "status" >Status:</label>
+        <br>
+        <input type = "text" id = "status" name = "status" placeholder = "e.g., Applied, Interview, Offer">
+        <br>
+
+        <!-- Label gives and id then tells the user what it is for -->
+        <label for = "notes" >Notes:</label>
+        <br>
+        <textarea id = "notes" name = "notes" rows = "4" cols = "50"></textarea>
+        <br>
+
+        <!-- Button to submit the form-->
+        <button type = "submit">Update Job</button>
+
+    </form>
+
+    <!--Go back link-->
+    <p>Go back <a href = "/dashboard">Click here</a></p>
+
+</body>
+</html>

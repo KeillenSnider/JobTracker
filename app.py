@@ -144,6 +144,40 @@ def add():
     return render_template('add.html')
 
 
+#Job id is sent when clicked look at the table in dashboard
+@app.route('/update/<int:job_id>', methods = ['GET', 'POST'])
+def update(job_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+
+        #Get the data from the user to update
+        new_status = request.form['status'] or "Applied"
+        new_notes = request.form['notes']
+
+        #update the database
+        database.update_job(job_id, new_status, new_notes)
+
+        #Go back to the dashboard
+        return redirect(url_for('dashboard'))
+
+    #Show the update page if it is a GET and pass the job id to a variable that can be used in update
+    return render_template('update.html', job_id = job_id)
+
+
+
+
+@app.route('/delete/<int:job_id>')
+def delete(job_id):
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    #Delete the job from the database
+    database.delete_job(job_id)
+
+    #Reload the dashboard
+    return redirect(url_for('dashboard'))
 
 
 #Used so only when this file is ran it will work not if it is called in another file

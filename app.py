@@ -104,8 +104,11 @@ def dashboard():
     #Get the user id number
     user_id = user[0]
 
+    #Try and get the sort value if not there use 4
+    sort_by = request.args.get('sort', '4')
+
     #Gets all the jobs of the user and also makes sure the parameter is done right
-    jobs = database.get_all_jobs(user_id = user_id)
+    jobs = database.get_all_jobs(sort_by = sort_by, user_id = user_id)
 
     #Send the data to the html and send the jobs and username with it
     return render_template('dashboard.html', username = session['username'], jobs = jobs)

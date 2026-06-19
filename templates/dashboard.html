@@ -63,7 +63,13 @@
                 <td>{{job[4]}}</td>
                 <td>{{job[5]}}</td>
                 <td>{{job[6]}}</td>
-                <td><a href="{{job[7]}}" target="_blank">Open</a></td>
+                <td>
+                {% if job[7] %}
+                    <a href="{{job[7]}}" target="_blank">Open</a>
+                {% else %}
+                    No link
+                {% endif %}
+                </td>
                 <td><a href = "/update/{{job[0]}}">Update</a></td>
                 <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
             </tr>

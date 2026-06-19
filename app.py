@@ -4,7 +4,7 @@
 # request for getting if it is a post or get request, Sessions for keeping track if a user is logged in on every page
 from flask import Flask, render_template, redirect, url_for, request, session
 import database
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 #This starts the web app. __name__ is the current file, app is what routes will attach to and Flask is the framework
 app = Flask(__name__)
@@ -26,6 +26,7 @@ database.setup_database()
 @app.route('/')
 #This is the root page of the website
 def home():
+    #Go to login
     return redirect(url_for("login"))
 
 
@@ -110,6 +111,39 @@ def logout():
     #Clear the session data to log out the user and return to the logout page
     session.clear()
     return redirect(url_for('login'))
+
+
+
+@app.route('/add', methods = ['GET', 'POST'])
+def add():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    if request.method == 'POST':
+
+        #Get user id
+        user = database.get_user(session['username'])
+        user_id = user[0]
+
+        #Get the data from the form
+        company = request.form['company']
+        role = request.form['role']
+        location = request.form['location']
+        status = request.form['status'] or "Applied"
+        date_applied = request.form['date_applied'] or str(datetime.now().date())
+        notes = request.form['notes']
+        url = request.form['url']
+
+        #Add the job to the database
+        database.add_job(company, role, location, status, date_applied, notes, url, user_id)
+
+        #Go back to the dashboard
+        return redirect(url_for('dashboard'))
+    
+    #Show the add page if it is a GET
+    return render_template('add.html')
+
+
 
 
 #Used so only when this file is ran it will work not if it is called in another file

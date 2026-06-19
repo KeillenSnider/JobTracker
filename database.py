@@ -208,7 +208,36 @@ def update_job(job_id, new_status = None, new_notes = None, new_url = None):
     #Creates a cursor so that you can run SQL commands
     cursor = connection.cursor()
 
-    cursor.execute("UPDATE jobs SET status = ?, notes = ?, url = ? WHERE id = ?",(new_status, new_notes, new_url, job_id))
+    #Arrays for the data that is needed
+    updates = []
+    values = []
+
+    #If statments for if a field was left blank and if so do not overwrite it
+    if new_status not in (None, ""):
+        updates.append("status = ?")
+        values.append(new_status)
+    
+    if new_notes not in (None, ""):
+        updates.append("notes = ?")
+        values.append(new_notes)
+
+    if new_url not in (None, ""):
+        updates.append("url = ?")
+        values.append(new_url)
+
+    #If empty do nothing
+    if not updates:
+        connection.close()
+        return
+
+
+    #Because it is dynamic you have to build the sql outside the execute
+    sql = "UPDATE jobs SET " + ", ".join(updates) + " WHERE id = ?" 
+    #Add job id to the end for the WHERE
+    values.append(job_id)
+
+    #Run the code
+    cursor.execute(sql, values)
 
     #Saves the changes to the database file
     connection.commit()

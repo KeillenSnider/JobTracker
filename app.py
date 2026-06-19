@@ -188,4 +188,4 @@ def delete(job_id):
 #Used so only when this file is ran it will work not if it is called in another file
 if __name__ == "__main__":
     #Debug helps with development but make sure it is off when it is live
-    app.run(debug=True)
+    app.run(debug=False)

@@ -149,7 +149,7 @@ def add():
     return render_template('add.html')
 
 
-#Job id is sent when clicked look at the table in dashboard
+#Job id is sent when clicked look at the table in dashboard and you will see the values
 @app.route('/update/<int:job_id>', methods = ['GET', 'POST'])
 def update(job_id):
     if 'username' not in session:

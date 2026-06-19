@@ -200,7 +200,7 @@ def get_all_jobs(sort_by = "4", user_id = None):
 
 
 #Will update the columns in the database
-def update_job(job_id, new_status, new_notes, new_url = None):
+def update_job(job_id, new_status = None, new_notes = None, new_url = None):
 
     #Open/Create the data base file
     connection = sqlite3.connect("jobs.db")

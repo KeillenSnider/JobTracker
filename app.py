@@ -91,10 +91,25 @@ def register():
 def dashboard():
     if 'username' not in session:
         return redirect(url_for('login'))
-    else:
-        return "Dash soon"
+    
+    #Get the users data from the database
+    user = database.get_user(session['username'])
+    
+    #Get the user id number
+    user_id = user[0]
+
+    #Gets all the jobs of the user and also makes sure the parameter is done right
+    jobs = database.get_all_jobs(user_id = user_id)
+
+    #Send the data to the html and send the jobs and username with it
+    return render_template('dashboard.html', username = session['username'], jobs = jobs)
 
 
+@app.route('/logout')
+def logout():
+    #Clear the session data to log out the user and return to the logout page
+    session.clear()
+    return redirect(url_for('login'))
 
 
 #Used so only when this file is ran it will work not if it is called in another file

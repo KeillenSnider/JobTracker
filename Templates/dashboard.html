@@ -1,0 +1,67 @@
+<!--Code for the Dashboard page-->
+
+
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <title>JobTracker Dashboard</title>
+
+    <!--Used to have the most amount characters so everyone can view it-->
+    <meta charset = "UTF-8">
+    <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
+    <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+</head>
+
+<body>
+
+    <!--Header for the dashboard page with there name-->
+    <h1>JobTracker Dashboard. Welcome, {{username}}</h1>
+
+    <!--Message if no jobs are available-->
+    {% if not jobs %}
+        <p>No jobs yet. Add your first job!</p>
+    {% endif %}
+
+
+    <!--Add a job button-->
+    <a href = "/add">Add Job</a>
+
+
+    <!--Table of all the jobs-->
+    <table>
+        <!--Table headers-->
+        <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Date Applied</th>
+            <th>Notes</th>
+            <th>URL</th>
+        </tr>
+
+        <!--Loop through all the jobs and make a Tuple for each one-->
+        {% for job in jobs %}
+            <tr>
+                <td>{{job[1]}}</td>
+                <td>{{job[2]}}</td>
+                <td>{{job[3]}}</td>
+                <td>{{job[4]}}</td>
+                <td>{{job[5]}}</td>
+                <td>{{job[6]}}</td>
+                <td><a href="{{job[7]}}" target="_blank">Open</a></td>
+                <td><a href = "/update/{{job[0]}}">Update</a></td>
+                <td><a href = "/delete/{{job[0]}}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+<!--Add a Logout button-->
+<a href = "/logout">Logout</a>
+
+
+</body>
+</html>

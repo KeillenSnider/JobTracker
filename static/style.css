@@ -107,6 +107,25 @@ body {
 
 }
 
+/*Container for the table because it needs to be wide*/
+.container-table{
+
+    text-align: center;
+
+    background-color: var(--bg-secondary);
+
+    max-width: 1000px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow);
+
+}
+
 
 /*For the inputs and the boxes*/
 input{

@@ -270,7 +270,7 @@ td a:focus{
 /*_______________________________________________________________________________________________________________________*/
 
 /*For the inputs and the boxes*/
-input{
+input, textarea{
 
     margin: 20px auto;
 
@@ -294,11 +294,11 @@ input{
 }
 
 /*When hovered and clicked*/
-input:hover{
+input:hover, textarea:hover{
     border: 2px solid var(--accent-hover);
 }
 
-input:focus{
+input:focus, textarea:focus{
     border: 2px solid var(--accent);
 }
 

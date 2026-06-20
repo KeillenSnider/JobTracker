@@ -23,3 +23,4 @@ DIFFERNT FILES:
   app.py - Web app
   jobtracker.py - Terminal app
   database.py - Database
+  database_web.py - Database for web app

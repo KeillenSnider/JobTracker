@@ -4,80 +4,82 @@
 <html lang = "en">
 
 <head>
-    <title>JobTracker Adding a Job</title>
-
-    <!--Connects the file to the css file that has the styles-->
-    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
-
+    
     <!--Used to have the most amount characters so everyone can view it-->
     <meta charset = "UTF-8">
+
     <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
     <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+    <title>JobTracker Add a Job</title>
 
     <!--Used to download the Inter font to that it works-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!--Link to Style css code-->
-    <link rel="stylesheet" href="style.css">
+    <!--Connects the file to the css file that has the styles-->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
-    <!--Header for the Add Job page-->
-    <h1>JobTracker Adding a Job</h1>
+    
+    <div class = "container">
+        <!--Header for the Add Job page-->
+        <h1>JobTracker Adding a Job</h1>
 
-    <form method = "POST" action = "/add">
+        <form method = "POST" action = "/add">
 
-        <!--Lables and inputs for all fields-->
+            <!--Lables and inputs for all fields-->
 
-        <!--Company-->
-        <label for = "company" >Company:</label>
-        <br>
-        <input type = "text" id = "company" name  = "company" required>
-        <br>
+            <!--Company-->
+            <label for = "company" >Company:</label>
+            <br>
+            <input type = "text" id = "company" name  = "company" required>
+            <br>
 
-        <!--Role-->
-        <label for = "role" >Role:</label>
-        <br>
-        <input type = "text" id = "role" name = "role" required>
-        <br>
+            <!--Role-->
+            <label for = "role" >Role:</label>
+            <br>
+            <input type = "text" id = "role" name = "role" required>
+            <br>
 
-        <!--Location-->
-        <label for = "location" >Location:</label>
-        <br>
-        <input type = "text" id = "location" name = "location">
-        <br>
+            <!--Location-->
+            <label for = "location" >Location:</label>
+            <br>
+            <input type = "text" id = "location" name = "location">
+            <br>
 
-        <!--Status-->
-        <label for = "status" >Status:</label>
-        <br>
-        <input type = "text" id = "status" name = "status" placeholder = "e.g., Applied, Interview, Offer">
-        <br>
+            <!--Status-->
+            <label for = "status" >Status:</label>
+            <br>
+            <input type = "text" id = "status" name = "status" placeholder = "e.g., Applied, Interview, Offer">
+            <br>
 
-        <!--Date Applied-->
-        <label for = "date_applied" >Date Applied:</label>
-        <br>
-        <input type = "date" id = "date_applied" name = "date_applied" placeholder = "YYYY-MM-DD" required>
-        <br>
+            <!--Date Applied-->
+            <label for = "date_applied" >Date Applied:</label>
+            <br>
+            <input type = "date" id = "date_applied" name = "date_applied" placeholder = "YYYY-MM-DD" required>
+            <br>
 
-        <!--Notes-->
-        <label for = "notes" >Notes:</label>
-        <br>
-        <textarea id = "notes" name = "notes" rows = "4" cols = "50"></textarea>
-        <br>
+            <!--Notes-->
+            <label for = "notes" >Notes:</label>
+            <br>
+            <textarea id = "notes" name = "notes" rows = "4" cols = "50"></textarea>
+            <br>
 
-        <!--URL-->
-        <label for = "url" >URL:</label>
-        <br>
-        <input type="url" name="url" placeholder="https://example.com">
-        <br>
+            <!--URL-->
+            <label for = "url" >URL:</label>
+            <br>
+            <input type="url" name="url" placeholder="https://example.com">
+            <br>
 
-        <!-- Button to submit the form-->
-        <button type = "submit">Add Job</button>
-    </form>
+            <!-- Button to submit the form-->
+            <button type = "submit">Add Job</button>
+        </form>
 
-    <!--Go back link-->
-    <p>Go back <a href = "/dashboard">Click here</a></p>
+        <!--Go back link-->
+        <p>Go back <a href = "/dashboard">Click here</a></p>
 
+    </div>
 </body>
 </html>

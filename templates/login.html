@@ -4,61 +4,62 @@
 <html lang = "en">
 
 <head>
-    <title>JobTracker Login</title>
-
-    <!--Connects the file to the css file that has the styles-->
-    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
-
+    
     <!--Used to have the most amount characters so everyone can view it-->
     <meta charset = "UTF-8">
+
     <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
     <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+    <title>JobTracker Login</title>
 
     <!--Used to download the Inter font to that it works-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!--Link to Style css code-->
-    <link rel="stylesheet" href="style.css">
+    <!--Connects the file to the css file that has the styles-->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
-    <!--Header for the login page-->
-    <h1>JobTracker Login</h1>
+
+    <div class = "container">
+        <!--Header for the login page-->
+        <h1>JobTracker Login</h1>
 
 
-    <!--Error message if it is passed in and make it red-->
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
+        <!--Error message if it is passed in and make it red-->
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
 
 
-    <!--POST so it is secure and not showing in the url and action login is for the route used in app.py to log in the user-->
-    <form method = "POST" action = "/login">
+        <!--POST so it is secure and not showing in the url and action login is for the route used in app.py to log in the user-->
+        <form method = "POST" action = "/login">
 
-        <!-- Label gives and id then tells the user what it is for -->
-         <label for = "username" >Username:</label>
-        <br>
-         <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
-         <input type = "text" id = "username" name  = "username" required>
-        <br>
-         <!-- Label for the password-->
-          <label for = "password" >Password:</label>
-        <br>
-          <!--Type as password makes it to were it shows up as dots so no one can see whaty is typed-->
-          <input type = "password" id = "password" name = "password" required>
-        <br>
+            <!-- Label gives and id then tells the user what it is for -->
+            <label for = "username" >Username:</label>
+            <br>
+            <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
+            <input type = "text" id = "username" name  = "username" required>
+            <br>
+            <!-- Label for the password-->
+            <label for = "password" >Password:</label>
+            <br>
+            <!--Type as password makes it to were it shows up as dots so no one can see whaty is typed-->
+            <input type = "password" id = "password" name = "password" required>
+            <br>
 
-        <!-- Button to submit the form-->
-         <button type = "submit">Login</button>
+            <!-- Button to submit the form-->
+            <button type = "submit">Login</button>
 
-    </form>
-
-
-    <!--Link for if they need to make an account-->
-    <p>Don't have an account? <a href = "/register">Register here</a></p>
+        </form>
 
 
+        <!--Link for if they need to make an account-->
+        <p>Don't have an account? <a href = "/register">Register here</a></p>
+
+    </div>
 </body>
 </html>
 

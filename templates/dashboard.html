@@ -5,87 +5,87 @@
 <html lang = "en">
 
 <head>
-    <title>JobTracker Dashboard</title>
-
-    <!--Connects the file to the css file that has the styles-->
-    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
-
+    
     <!--Used to have the most amount characters so everyone can view it-->
     <meta charset = "UTF-8">
+
     <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
     <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+    <title>JobTracker Dashboard</title>
 
     <!--Used to download the Inter font to that it works-->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    <!--Link to Style css code-->
-    <link rel="stylesheet" href="style.css">
+    <!--Connects the file to the css file that has the styles-->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-    <!--Header for the dashboard page with there name-->
-    <h1>JobTracker Dashboard. Welcome, {{username}}</h1>
+    <div class = "container">
+        <!--Header for the dashboard page with there name-->
+        <h1>JobTracker Dashboard. Welcome, {{username}}</h1>
 
-    <!--Message if no jobs are available-->
-    {% if not jobs %}
-        <p>No jobs yet. Add your first job!</p>
-    {% endif %}
+        <!--Message if no jobs are available-->
+        {% if not jobs %}
+            <p>No jobs yet. Add your first job!</p>
+        {% endif %}
 
 
-    <!--Add a job button-->
-    <a href = "/add">Add Job</a>
+        <!--Add a job button-->
+        <a href = "/add">Add Job</a>
 
-    <br><br><br>
+        <br><br><br>
 
-    <h3>Sort options: </h3>
-    <a href = "/dashboard?sort=1">Date Applied</a>
-    <a href = "/dashboard?sort=2">Company</a>
-    <a href = "/dashboard?sort=3">Status</a>
-    <a href = "/dashboard?sort=4">Date Added</a>
+        <h3>Sort options: </h3>
+        <a href = "/dashboard?sort=1">Date Applied</a>
+        <a href = "/dashboard?sort=2">Company</a>
+        <a href = "/dashboard?sort=3">Status</a>
+        <a href = "/dashboard?sort=4">Date Added</a>
 
-    <br><br>
+        <br><br>
 
-    <!--Table of all the jobs-->
-    <table>
-        <!--Table headers-->
-        <tr>
-            <th>Company</th>
-            <th>Role</th>
-            <th>Location</th>
-            <th>Status</th>
-            <th>Date Applied</th>
-            <th>Notes</th>
-            <th>URL</th>
-        </tr>
-
-        <!--Loop through all the jobs and make a Tuple for each one-->
-        {% for job in jobs %}
+        <!--Table of all the jobs-->
+        <table>
+            <!--Table headers-->
             <tr>
-                <td>{{job[1]}}</td>
-                <td>{{job[2]}}</td>
-                <td>{{job[3]}}</td>
-                <td>{{job[4]}}</td>
-                <td>{{job[5]}}</td>
-                <td>{{job[6]}}</td>
-                <td>
-                {% if job[7] %}
-                    <a href="{{job[7]}}" target="_blank">Open</a>
-                {% else %}
-                    No link
-                {% endif %}
-                </td>
-                <td><a href = "/update/{{job[0]}}">Update</a></td>
-                <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th>Date Applied</th>
+                <th>Notes</th>
+                <th>URL</th>
             </tr>
-        {% endfor %}
-    </table>
+
+            <!--Loop through all the jobs and make a Tuple for each one-->
+            {% for job in jobs %}
+                <tr>
+                    <td>{{job[1]}}</td>
+                    <td>{{job[2]}}</td>
+                    <td>{{job[3]}}</td>
+                    <td>{{job[4]}}</td>
+                    <td>{{job[5]}}</td>
+                    <td>{{job[6]}}</td>
+                    <td>
+                    {% if job[7] %}
+                        <a href="{{job[7]}}" target="_blank">Open</a>
+                    {% else %}
+                        No link
+                    {% endif %}
+                    </td>
+                    <td><a href = "/update/{{job[0]}}">Update</a></td>
+                    <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
 
 
-<!--Add a Logout button-->
-<a href = "/logout">Logout</a>
+        <!--Add a Logout button-->
+        <a href = "/logout">Logout</a>
 
-
+    </div>
 </body>
 </html>

@@ -70,7 +70,33 @@ body.dark {
 
 /*Body Global*/
 body {
-  background-color: rgb(170, 186, 192);
-/*This changes the font from left to right and if the first is not avalable it goes to the next*/
-  font-family: "Inter", Arial, sans-serif;
+  
+    background-color: var(--bg-primary);
+
+    /*For the text*/
+    color: var(--text-primary);
+
+    /*This changes the font from left to right and if the first is not avalable it goes to the next*/
+    font-family: "Inter", Arial, sans-serif;
+
+    /*Will make sure the background color is on the whole page and not cut off*/
+    min-height: 100vh;
 }
+
+
+/*Containers for all forms*/
+ .container{
+
+    background-color: var(--bg-secondary);
+
+    max-width: 450px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: var(--shadow);
+
+ }

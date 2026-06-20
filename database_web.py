@@ -93,7 +93,8 @@ def login_user(username, password):
     
     #Check the password
     #user[2] because password is in the 2nd column of the table
-    stored_hash = user[2]
+    #Since PostgreSQL stores as text you need to make it to bytes
+    stored_hash = user[2].encode('utf-8')
     #hashes the password they entered and checks it with the stored hash to see if it maches
     return bcrypt.checkpw(password.encode('utf-8'), stored_hash)
 

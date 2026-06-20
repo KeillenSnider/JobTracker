@@ -135,7 +135,7 @@ body {
 /*Table styling*/
 table {
     
-    width: 80%;
+    width: 100%;
     
     /*Removes the borders between the cells*/
     border-collapse: collapse;

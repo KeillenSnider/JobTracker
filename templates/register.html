@@ -67,5 +67,32 @@
 
 
     </div>
+
+    <script>
+
+        //If the theme was already dark add it to this page
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+        }
+
+        //find the element dark mode and listen for a click
+        document.getElementById("dark-mode-toggle").addEventListener("click", function() {
+            
+            //Change it to what the oppisite is
+            document.body.classList.toggle("dark");
+
+            //If it is dark then set as dark
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("theme", "dark");
+            } 
+            
+            //It is light so make the colors root
+            else {
+                localStorage.setItem("theme", "light");
+            }
+            
+        });
+    </script>
+    
 </body>
 </html>

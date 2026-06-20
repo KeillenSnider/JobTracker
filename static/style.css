@@ -219,7 +219,7 @@ td a:focus{
     display: inline-block;
 
     /*Top and bottom*/
-    margin: 10px 0;
+    margin: 20px 5px;
 
 }
 
@@ -249,7 +249,7 @@ td a:focus{
 
     display: inline-block;
 
-    margin: 20px;
+    margin: 10px;
 
 }
 

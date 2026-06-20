@@ -87,6 +87,8 @@ body {
 /*Containers for all forms*/
  .container{
 
+    text-align: center;
+
     background-color: var(--bg-secondary);
 
     max-width: 450px;
@@ -104,6 +106,8 @@ body {
 
 /*For the inputs and the boxes*/
 input{
+
+    margin: 20px auto;
 
     width: 80%;
 

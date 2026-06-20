@@ -174,7 +174,7 @@ button:focus{
 /*Fix the Dark mode button to the top left and make sure it is on top*/
 #dark-mode-toggle{
 
-    width: 20%;
+    width: 10%;
     
     position: fixed;
     

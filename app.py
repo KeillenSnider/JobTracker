@@ -3,7 +3,7 @@
 #Flask for the app, render templates for getting html in templates, redirect for auto taking to next page, url for so nothing breaks
 # request for getting if it is a post or get request, Sessions for keeping track if a user is logged in on every page
 from flask import Flask, render_template, redirect, url_for, request, session
-import database
+import database_web
 from datetime import timedelta, datetime
 from dotenv import load_dotenv
 import os
@@ -21,7 +21,7 @@ app.secret_key = os.getenv('SECRET_KEY')
 
 
 #Make sure the database is set up before the website starts
-database.setup_database()
+database_web.setup_database()
 
 
 
@@ -47,7 +47,7 @@ def login():
         password = request.form['password']
 
         #check if they match the database
-        if database.login_user(username, password):
+        if database_web.login_user(username, password):
 
             #This starts the timer for the session so they will be logged out after 30 minutes of inactivity
             session.permanent = True
@@ -77,7 +77,7 @@ def register():
         password = request.form['password']
 
         #Register the user in the database
-        if database.register_user(username, password):
+        if database_web.register_user(username, password):
             #Send them to login
             return redirect(url_for('login'))
         
@@ -99,7 +99,7 @@ def dashboard():
         return redirect(url_for('login'))
     
     #Get the users data from the database
-    user = database.get_user(session['username'])
+    user = database_web.get_user(session['username'])
     
     #Get the user id number
     user_id = user[0]
@@ -108,7 +108,7 @@ def dashboard():
     sort_by = request.args.get('sort', '4')
 
     #Gets all the jobs of the user and also makes sure the parameter is done right
-    jobs = database.get_all_jobs(sort_by = sort_by, user_id = user_id)
+    jobs = database_web.get_all_jobs(sort_by = sort_by, user_id = user_id)
 
     #Send the data to the html and send the jobs and username with it
     return render_template('dashboard.html', username = session['username'], jobs = jobs)
@@ -130,7 +130,7 @@ def add():
     if request.method == 'POST':
 
         #Get user id
-        user = database.get_user(session['username'])
+        user = database_web.get_user(session['username'])
         user_id = user[0]
 
         #Get the data from the form
@@ -143,7 +143,7 @@ def add():
         url = request.form['url']
 
         #Add the job to the database
-        database.add_job(company, role, location, status, date_applied, notes, url, user_id)
+        database_web.add_job(company, role, location, status, date_applied, notes, url, user_id)
 
         #Go back to the dashboard
         return redirect(url_for('dashboard'))
@@ -166,7 +166,7 @@ def update(job_id):
         new_url = request.form['url']
 
         #update the database
-        database.update_job(job_id, new_status, new_notes, new_url)
+        database_web.update_job(job_id, new_status, new_notes, new_url)
 
         #Go back to the dashboard
         return redirect(url_for('dashboard'))
@@ -183,7 +183,7 @@ def delete(job_id):
         return redirect(url_for('login'))
     
     #Delete the job from the database
-    database.delete_job(job_id)
+    database_web.delete_job(job_id)
 
     #Reload the dashboard
     return redirect(url_for('dashboard'))

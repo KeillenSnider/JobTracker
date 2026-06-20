@@ -203,6 +203,69 @@ td a:focus{
 
 /*_______________________________________________________________________________________________________________________*/
 
+.button a {
+
+    background-color: var(--accent);
+
+    color: white;
+
+    /*Top and bottom*/
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    /*Top and bottom*/
+    margin: 10px 0;
+
+}
+
+/*When a button is hovered or clicked*/
+.button a:hover{
+    border: 2px solid var(--accent-hover);
+}
+
+.button a:focus{
+    border: 2px solid black;
+}
+
+
+
+
+.sort-buttons a {
+
+    background-color: var(--accent);
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    margin: 5px;
+
+}
+
+/*When a button is hovered or clicked*/
+.sort-buttons a:hover{
+    border: 2px solid var(--accent-hover);
+}
+
+.sort-buttons a:focus{
+    border: 2px solid black;
+}
+
+
+
+/*_______________________________________________________________________________________________________________________*/
+
 /*For the inputs and the boxes*/
 input{
 

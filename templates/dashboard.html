@@ -35,19 +35,21 @@
             <p>No jobs yet. Add your first job!</p>
         {% endif %}
 
+        <div class = "button">
+            <!--Add a job button-->
+            <a href = "/add">Add Job</a>
+        </div>
 
-        <!--Add a job button-->
-        <a href = "/add">Add Job</a>
-
-        <br><br><br>
 
         <h3>Sort options: </h3>
-        <a href = "/dashboard?sort=1">Date Applied</a>
-        <a href = "/dashboard?sort=2">Company</a>
-        <a href = "/dashboard?sort=3">Status</a>
-        <a href = "/dashboard?sort=4">Date Added</a>
 
-        <br><br>
+        <div class = "sort-buttons">
+            <a href = "/dashboard?sort=1">Date Applied</a>
+            <a href = "/dashboard?sort=2">Company</a>
+            <a href = "/dashboard?sort=3">Status</a>
+            <a href = "/dashboard?sort=4">Date Added</a>
+        </div>
+
 
         <!--Table of all the jobs-->
         <table>
@@ -85,9 +87,10 @@
         </table>
 
 
-        <br><br>
-        <!--Add a Logout button-->
-        <a href = "/logout">Logout</a>
+        <div class = "button">
+            <!--Add a Logout button-->
+            <a href = "/logout">Logout</a>
+        </div>
 
     </div>
 

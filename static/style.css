@@ -100,3 +100,20 @@ body {
     box-shadow: var(--shadow);
 
  }
+
+
+ /*For the inputs and the boxes*/
+ input{
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 2px solid var(--border);
+
+    border-radius: 10px;
+
+    background-color: var(--bg-secondary);
+
+    color: var(--text-secondary);
+ }

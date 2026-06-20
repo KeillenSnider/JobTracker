@@ -172,7 +172,7 @@ tr:nth-child(even) {
 /*Table cell links into buttons*/
 td a {
 
-    border: var(--accent);
+    border: 2px solid var(--accent);
 
     border-radius: 10px;
 
@@ -183,7 +183,7 @@ td a {
     color: var(--text-primary);
 
     text-decoration: none;
-    
+
 }
 
 

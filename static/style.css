@@ -126,6 +126,48 @@ body {
 
 }
 
+/*Table styling*/
+table {
+    
+    width: 80%;
+    
+    border-collapse: collapse;
+    
+    margin-top: 20px;
+
+}
+
+/*Table headers*/
+th {
+
+    background-color: var(--accent);
+    
+    color: white;
+    
+    padding: 10px;
+    
+    text-align: left;
+
+}
+
+/*Table cells*/
+td {
+
+    padding: 10px;
+    
+    border-bottom: 2px solid var(--border);
+    
+    color: var(--text-primary);
+
+}
+
+/*Alternating row colors to distinguish jobs on every even number*/
+tr:nth-child(even) {
+
+    background-color: var(--bg-primary);
+
+}
+
 
 /*For the inputs and the boxes*/
 input{

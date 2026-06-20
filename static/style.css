@@ -140,7 +140,7 @@ table {
     /*Removes the borders between the cells*/
     border-collapse: collapse;
     
-    margin-top: 20px;
+    margin-top: 20px auto;
 
 }
 

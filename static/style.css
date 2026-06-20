@@ -65,3 +65,12 @@ body.dark {
     /*When it worked*/
     --success:       #68d391;
 }
+
+
+
+/*Body Global*/
+body {
+  background-color: rgb(170, 186, 192);
+/*This changes the font from left to right and if the first is not avalable it goes to the next*/
+  font-family: "Inter", Arial, sans-serif;
+}

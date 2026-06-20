@@ -99,11 +99,11 @@ body {
 
     box-shadow: var(--shadow);
 
- }
+}
 
 
- /*For the inputs and the boxes*/
- input{
+/*For the inputs and the boxes*/
+input{
 
     width: 80%;
 
@@ -122,28 +122,28 @@ body {
     /*So no overflow*/
     box-sizing: border-box;
 
- }
+}
 
 /*When hovered and clicked*/
 input:hover{
     border: 2px solid var(--accent-hover);
-
-    outline: none;
 }
 
 input:focus{
     border: 2px solid var(--accent);
-
-    outline: none;
 }
 
 
 
 
- /*All button styling*/
- button{
+/*All button styling*/
+button{
 
-    width: 20%;
+    display: block;
+
+    margin: 20px auto;
+
+    width: 50%;
 
     padding: 10px;
 
@@ -154,12 +154,11 @@ input:focus{
     border: 2px solid var(--border);
 
     cursor: pointer;
- }
+}
 
- /*When a button is hovered or clicked*/
- button:hover{
+/*When a button is hovered or clicked*/
+button:hover{
     border: 2px solid var(--accent-hover);
-
 }
 
 button:focus{

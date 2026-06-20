@@ -168,3 +168,40 @@ button:hover{
 button:focus{
     border: 2px solid black;
 }
+
+
+
+/*Fix the Dark mode button to the top left and make sure it is on top*/
+#dark-mode-toggle{
+    
+    position: fixed;
+    
+    top: 10px;
+
+    left: 10px;
+
+    /*Make it onto of everything*/
+    z-index: 1000;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    background-color: var(--accent);
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+/*When a button is hovered or clicked*/
+#dark-mode-toggle:hover{
+    border: 2px solid var(--accent-hover);
+}
+
+#dark-mode-toggle:focus{
+    border: 2px solid black;
+}

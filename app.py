@@ -2,11 +2,37 @@
 
 #Flask for the app, render templates for getting html in templates, redirect for auto taking to next page, url for so nothing breaks
 # request for getting if it is a post or get request, Sessions for keeping track if a user is logged in on every page
-from flask import Flask, render_template, redirect, url_for, request, session
+from flask import Flask, render_template, redirect, url_for, request, session, make_response
 import database_web
 from datetime import timedelta, datetime
 from dotenv import load_dotenv
 import os
+
+#Login required detector is needed
+from functools import wraps
+#Makes sure that the logged in user can not hit the back page button after logging out
+#Wraps the route and makes sure it is not cached
+def nocache(f):
+    
+    #Pretend to be f
+    @wraps(f)
+
+    #Lets it take any argument
+    def decorated_function(*args, **kwargs):
+
+        #Call the original function
+        response = make_response(f(*args, **kwargs))
+
+        #Says to not cache this page and get a new one
+        response.headers['Cache-Control'] = 'no-store'
+
+
+        return response
+    
+    return decorated_function
+
+
+
 
 
 #This starts the web app. __name__ is the current file, app is what routes will attach to and Flask is the framework
@@ -38,6 +64,7 @@ def home():
 
 #Because we have post on the html I need methods
 @app.route('/login', methods = ['GET', 'POST'])
+@nocache
 def login():
 
     #Check if a POST way sent
@@ -68,6 +95,7 @@ def login():
 
 #Used for the Register page
 @app.route('/register', methods = ['GET', 'POST'])
+@nocache
 def register():
 
     #Check if a POST way sent
@@ -94,6 +122,7 @@ def register():
 
 
 @app.route('/dashboard')
+@nocache
 def dashboard():
     if 'username' not in session:
         return redirect(url_for('login'))
@@ -115,6 +144,7 @@ def dashboard():
 
 
 @app.route('/logout')
+@nocache
 def logout():
     #Clear the session data to log out the user and return to the logout page
     session.clear()
@@ -123,6 +153,7 @@ def logout():
 
 
 @app.route('/add', methods = ['GET', 'POST'])
+@nocache
 def add():
     if 'username' not in session:
         return redirect(url_for('login'))
@@ -154,6 +185,7 @@ def add():
 
 #Job id is sent when clicked look at the table in dashboard and you will see the values
 @app.route('/update/<int:job_id>', methods = ['GET', 'POST'])
+@nocache
 def update(job_id):
     if 'username' not in session:
         return redirect(url_for('login'))
@@ -178,6 +210,7 @@ def update(job_id):
 
 
 @app.route('/delete/<int:job_id>')
+@nocache
 def delete(job_id):
     if 'username' not in session:
         return redirect(url_for('login'))

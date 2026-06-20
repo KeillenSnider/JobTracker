@@ -15,7 +15,7 @@ app = Flask(__name__)
 #Gives 30 minutes of session time before it logs out the user for being inactive
 app.permanent_session_lifetime = timedelta(minutes = 30)
 
-#Gets the key
+#Gets the key from .env
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 

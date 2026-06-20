@@ -56,7 +56,7 @@ def register_user(username, password):
     cursor = connection.cursor()
 
     #Hash the password using bcrypt and salt is so that identical passwords get hashed to different values
-    password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt().decode('utf-8'))
 
     #Insert the new user into the users table and see if the username is taken
     try:

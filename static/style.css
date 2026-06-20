@@ -169,6 +169,23 @@ tr:nth-child(even) {
 
 }
 
+/*Table cell links into buttons*/
+td a {
+
+    border: var(--accent);
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    background-color: var(--bg-secondary);
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+    
+}
+
 
 /*For the inputs and the boxes*/
 input{

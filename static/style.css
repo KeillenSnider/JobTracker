@@ -186,6 +186,15 @@ td a {
 
 }
 
+/*When a button is hovered or clicked*/
+td a:hover{
+    border: 2px solid var(--accent-hover);
+}
+
+td a:focus{
+    border: 2px solid black;
+}
+
 
 /*For the inputs and the boxes*/
 input{

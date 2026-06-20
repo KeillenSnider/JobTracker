@@ -151,9 +151,9 @@ button{
 
     padding: 10px;
 
-    background-color: var(--bg-secondary);
+    background-color: var(--accent);
 
-    color: black;
+    color: white;
 
     border: 2px solid var(--border);
 
@@ -166,5 +166,5 @@ button:hover{
 }
 
 button:focus{
-    border: 2px solid var(--accent);
+    border: 2px solid black;
 }

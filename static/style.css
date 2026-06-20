@@ -111,9 +111,32 @@ body {
 
     border: 2px solid var(--border);
 
+    /*Corners*/
     border-radius: 10px;
 
     background-color: var(--bg-secondary);
 
+    /*Text color*/
     color: var(--text-secondary);
+
+    /*So no overflow*/
+    box-sizing: border-box;
+
+ }
+
+
+ /*All button styling*/
+ button{
+
+    width: 40%;
+
+    padding: 10px;
+
+    background-color: var(--bg-secondary);
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
  }

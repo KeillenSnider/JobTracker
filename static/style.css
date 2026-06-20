@@ -66,6 +66,10 @@ body.dark {
     --success:       #68d391;
 }
 
+/*Added because it was hard to see in dark mode*/
+a{
+    color: var(--accent);
+}
 
 
 /*Body Global*/

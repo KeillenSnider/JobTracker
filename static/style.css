@@ -284,7 +284,7 @@ td a:focus{
 /*For the inputs and the boxes*/
 input, textarea{
 
-    margin: 5px auto;
+    margin: 5px 0;
 
     width: 80%;
 

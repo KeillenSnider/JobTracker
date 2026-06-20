@@ -178,9 +178,9 @@ td a {
 
     padding: 10px;
 
-    background-color: var(--bg-secondary);
+    background-color: var(--accent);
 
-    color: var(--text-primary);
+    color: white;
 
     text-decoration: none;
 

@@ -25,11 +25,6 @@
     /*Card shadows*/
     --shadow:        0 2px 8px rgba(0,0,0,0.08);
 
-    /*Errors*/
-    --error:         #e53e3e;
-
-    /*When it worked*/
-    --success:       #38a169;
 }
 
 /* Dark Mode */
@@ -59,11 +54,6 @@ body.dark {
     /*Card shadows*/
     --shadow:        0 2px 8px rgba(0,0,0,0.3);
 
-    /*Errors*/
-    --error:         #fc8181;
-
-    /*When it worked*/
-    --success:       #68d391;
 }
 
 /*_______________________________________________________________________________________________________________________*/

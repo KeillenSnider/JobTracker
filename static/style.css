@@ -61,7 +61,7 @@ body.dark {
 /*Added because it was hard to see in dark mode*/
 a{
 
-    color: var(--accent);
+    color: var(--text-secondary);
 
 }
 

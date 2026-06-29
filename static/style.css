@@ -20,10 +20,16 @@
     --accent-hover:  #2b6cb0;
 
     /*Lines and borders*/
-    --border:        #e2e8f0;
+    --border:        #000000;
 
     /*Card shadows*/
     --shadow:        0 2px 8px rgba(0,0,0,0.08);
+
+    --bg-table-one: #b3ecff;
+
+    --bg-table-two: #4da6ff;
+
+    --bg-sort: #003d66;
 
 }
 
@@ -49,10 +55,16 @@ body.dark {
     --accent-hover:  #90cdf4;
 
     /*Lines and borders*/
-    --border:        #4a5568;
+    --border:        #ffffff;
 
     /*Card shadows*/
     --shadow:        0 2px 8px rgba(0,0,0,0.3);
+
+    --bg-table-one: #003d66;
+
+    --bg-table-two: #002b4d;
+
+    --bg-sort: #001a33;
 
 }
 
@@ -134,7 +146,7 @@ body {
 
     border-radius: 10px;
 
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
 
 }
 
@@ -150,6 +162,10 @@ table {
     
     margin-top: 20px auto;
 
+    border-collapse: collapse;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
+
 }
 
 /*Table headers*/
@@ -163,6 +179,12 @@ th {
     
     text-align: left;
 
+    border-left: 1px solid var(--border);
+
+    border-right: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
 }
 
 /*Table cells*/
@@ -170,16 +192,22 @@ td {
 
     padding: 10px;
     
-    border-bottom: 2px solid var(--border);
-    
     color: var(--text-primary);
+
+    border: 1px solid var(--border);
 
 }
 
 /*Alternating row colors to distinguish jobs on every even number*/
 tr:nth-child(even) {
 
-    background: var(--bg-primary);
+    background: var(--bg-table-one);
+
+}
+
+tr:nth-child(odd){
+
+    background: var(--bg-table-two);
 
 }
 
@@ -244,6 +272,17 @@ td a:focus{
 }
 
 
+.sort-box{
+
+    background-color: var(--bg-sort);
+
+    color: white;
+
+    padding: 5px;
+
+    margin: 10px;
+
+}
 
 
 .sort-buttons a {

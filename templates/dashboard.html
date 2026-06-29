@@ -44,13 +44,15 @@
         </div>
 
 
-        <h3>Sort options: </h3>
+        <div class = "sort-box">
+            <h3>Sort options: </h3>
 
-        <div class = "sort-buttons">
-            <a href = "/dashboard?sort=1">Date Applied</a>
-            <a href = "/dashboard?sort=2">Company</a>
-            <a href = "/dashboard?sort=3">Status</a>
-            <a href = "/dashboard?sort=4">Order Added</a>
+            <div class = "sort-buttons">
+                <a href = "/dashboard?sort=1">Date Applied</a>
+                <a href = "/dashboard?sort=2">Company</a>
+                <a href = "/dashboard?sort=3">Status</a>
+                <a href = "/dashboard?sort=4">Order Added</a>
+            </div>
         </div>
 
         <!--Lets you scroll down so it does not break the layout-->
@@ -63,9 +65,10 @@
                     <th>Role</th>
                     <th>Location</th>
                     <th>Status</th>
-                    <th>Date Applied</th>
+                    <th style="width: 120px;">Date Applied</th>
                     <th>Notes</th>
                     <th>URL</th>
+                    <th colspan="2">Actions</th>
                 </tr>
 
                 <!--Loop through all the jobs and make a Tuple for each one-->

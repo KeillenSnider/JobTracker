@@ -229,15 +229,13 @@ td a {
 
     text-decoration: none;
 
+    transition: 0.4s ease;
+
 }
 
 /*When a button is hovered or clicked*/
 td a:hover{
-    border: 2px solid var(--accent-hover);
-}
-
-td a:focus{
-    border: 2px solid black;
+    border: 2px solid rgb(190, 165, 165);
 }
 
 /*_______________________________________________________________________________________________________________________*/
@@ -260,15 +258,15 @@ td a:focus{
     /*Top and bottom*/
     margin: 20px 5px;
 
+    transition: 0.4s ease;
+
+    border: 2px solid var(--border);
+
 }
 
 /*When a button is hovered or clicked*/
 .button a:hover{
-    border: 2px solid var(--accent-hover);
-}
-
-.button a:focus{
-    border: 2px solid black;
+    border: 2px solid rgb(190, 165, 165);
 }
 
 
@@ -301,17 +299,16 @@ td a:focus{
 
     margin: 10px;
 
+    border: 2px solid var(--border);
+
+    transition: 0.4s ease;
+
 }
 
 /*When a button is hovered or clicked*/
 .sort-buttons a:hover{
-    border: 2px solid var(--accent-hover);
+    border: 2px solid rgb(190, 165, 165);
 }
-
-.sort-buttons a:focus{
-    border: 2px solid black;
-}
-
 
 
 /*_______________________________________________________________________________________________________________________*/
@@ -338,15 +335,13 @@ input, textarea{
     /*So no overflow*/
     box-sizing: border-box;
 
+    transition: 0.4s ease;
+
 }
 
 /*When hovered and clicked*/
 input:hover, textarea:hover{
-    border: 2px solid var(--accent-hover);
-}
-
-input:focus, textarea:focus{
-    border: 2px solid var(--accent);
+    border: 2px solid rgb(190, 165, 165);
 }
 
 
@@ -367,18 +362,16 @@ button{
 
     color: white;
 
-    border: none;
+    border: 2px solid var(--border);
 
     cursor: pointer;
+
+    transition: 0.4s ease;
 }
 
 /*When a button is hovered or clicked*/
 button:hover{
-    border: 2px solid var(--accent-hover);
-}
-
-button:focus{
-    border: 2px solid black;
+    border: 2px solid rgb(190, 165, 165);
 }
 
 /*_______________________________________________________________________________________________________________________*/
@@ -405,19 +398,17 @@ button:focus{
 
     color: white;
 
-    border: none;
+    border: 2px solid var(--border);
 
     cursor: pointer;
+
+    transition: 0.4s ease;
 
 }
 
 /*When a button is hovered or clicked*/
 #dark-mode-toggle:hover{
-    border: 2px solid var(--accent-hover);
-}
-
-#dark-mode-toggle:focus{
-    border: 2px solid black;
+    border: 2px solid rgb(190, 165, 165);
 }
 
 /*_______________________________________________________________________________________________________________________*/

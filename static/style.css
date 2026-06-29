@@ -2,7 +2,7 @@
 /*Variables*/
 :root {
     /* Main page background*/
-    --bg-primary: #f0f4f8;
+    --bg-primary: linear-gradient(to bottom, #b3ecff, #4da6ff, #003d66) ;
 
     /* Cards and forms backgroud */
     --bg-secondary: #ffffff;
@@ -31,7 +31,7 @@
 /*Variables*/
 body.dark {
     /* Main page background*/
-    --bg-primary:    #1a202c;
+    --bg-primary: linear-gradient(to bottom, #003d66, #002b4d, #001a33) ;
 
     /* Cards and forms backgroud */
     --bg-secondary:  #2d3748;

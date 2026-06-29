@@ -31,6 +31,8 @@
 
     --bg-sort: #003d66;
 
+    --bg-input: rgba(50, 80, 110, 0.2);
+
 }
 
 /* Dark Mode */
@@ -66,6 +68,8 @@ body.dark {
 
     --bg-sort: #001a33;
 
+    --bg-input: rgba(180, 200, 220, 0.15);
+
 }
 
 /*_______________________________________________________________________________________________________________________*/
@@ -92,6 +96,7 @@ h1{
     text-align: center;
 
 }
+
 
 /*_______________________________________________________________________________________________________________________*/
 
@@ -161,8 +166,6 @@ table {
     border-collapse: collapse;
     
     margin: 10px;
-
-    border-collapse: collapse;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
 
@@ -327,7 +330,7 @@ input, textarea{
     /*Corners*/
     border-radius: 10px;
 
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-input);
 
     /*Text color*/
     color: var(--text-secondary);

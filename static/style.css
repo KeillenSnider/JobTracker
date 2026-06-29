@@ -23,7 +23,7 @@
     --border:        #000000;
 
     /*Card shadows*/
-    --shadow:        0 2px 8px rgba(0,0,0,0.08);
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
 
     --bg-table-one: #b3ecff;
 
@@ -31,7 +31,8 @@
 
     --bg-sort: #003d66;
 
-    --bg-input: rgba(50, 80, 110, 0.2);
+    /*For all input boxes*/
+    --bg-input: #dceefb;
 
 }
 

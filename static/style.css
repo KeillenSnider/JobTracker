@@ -166,9 +166,11 @@ table {
     /*Removes the borders between the cells*/
     border-collapse: collapse;
     
-    margin: 10px;
+    margin: 10px auto;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
+
+    margin-bottom: 60px;
 
 }
 
@@ -266,6 +268,8 @@ td a:hover{
 
     border: 2px solid var(--border);
 
+    margin-bottom: 50px;
+
 }
 
 /*When a button is hovered or clicked*/
@@ -276,6 +280,8 @@ td a:hover{
 
 .sort-box{
 
+    display: inline-block;
+
     background-color: var(--bg-sort);
 
     color: white;
@@ -283,6 +289,14 @@ td a:hover{
     padding: 5px;
 
     margin: 10px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+
 
 }
 
@@ -371,6 +385,7 @@ button{
     cursor: pointer;
 
     transition: 0.4s ease;
+
 }
 
 /*When a button is hovered or clicked*/

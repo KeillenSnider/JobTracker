@@ -34,6 +34,8 @@
     /*For all input boxes*/
     --bg-input: #dceefb;
 
+    --bg-sort-table: #006b8f;
+
 }
 
 /* Dark Mode */
@@ -70,6 +72,8 @@ body.dark {
     --bg-sort: #001a33;
 
     --bg-input: rgba(180, 200, 220, 0.15);
+
+    --bg-sort-table: #00334e;
 
 }
 
@@ -156,6 +160,24 @@ body {
 
 }
 
+
+.sort-table-box{
+
+
+    background-color: var(--bg-sort-table);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    margin-bottom: 30px;
+
+    width: fit-content;
+
+}
+
 /*_______________________________________________________________________________________________________________________*/
 
 /*Table styling*/
@@ -170,7 +192,7 @@ table {
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
 
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 
 }
 
@@ -276,6 +298,36 @@ td a:hover{
 .button a:hover{
     border: 2px solid rgb(190, 165, 165);
 }
+
+
+.button-add-job a {
+
+    background-color: var(--accent);
+
+    color: white;
+
+    padding: 10px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    display: inline-block;
+
+    margin: 5px;
+
+    transition: 0.4s ease;
+
+    border: 2px solid var(--border);
+
+}
+
+/*When a button is hovered or clicked*/
+.button-add-job a:hover{
+    border: 2px solid rgb(190, 165, 165);
+}
+
+
 
 
 .sort-box{

@@ -31,67 +31,79 @@
 
     <div class = "container-table">
         <!--Header for the dashboard page with there name-->
-        <h3>Job Applications</h3>
+        <h2 style = "margin-bottom: 30px;">Job Applications</h2>
 
         <!--Message if no jobs are available-->
         {% if not jobs %}
             <p>No jobs yet. Add your first job!</p>
         {% endif %}
 
-        <div class = "button">
-            <!--Add a job button-->
-            <a href = "/add">Add Job</a>
-        </div>
 
+        <div class = "sort-table-box">
 
-        <div class = "sort-box">
-            <h3>Sort options: </h3>
+            <div class = "sort-box">
+                <h3>Sort options: </h3>
 
-            <div class = "sort-buttons">
-                <a href = "/dashboard?sort=1">Date Applied</a>
-                <a href = "/dashboard?sort=2">Company</a>
-                <a href = "/dashboard?sort=3">Status</a>
-                <a href = "/dashboard?sort=4">Order Added</a>
+                <div class = "sort-buttons">
+                    <a href = "/dashboard?sort=1">Date Applied</a>
+                    <a href = "/dashboard?sort=2">Company</a>
+                    <a href = "/dashboard?sort=3">Status</a>
+                    <a href = "/dashboard?sort=4">Order Added</a>
+                </div>
             </div>
-        </div>
 
-        <!--Lets you scroll down so it does not break the layout-->
-        <div style="overflow-x: auto;">
-            <!--Table of all the jobs-->
-            <table>
-                <!--Table headers-->
-                <tr>
-                    <th>Company</th>
-                    <th>Role</th>
-                    <th>Location</th>
-                    <th>Status</th>
-                    <th style="width: 120px;">Date Applied</th>
-                    <th style="width: 500px;">Notes</th>
-                    <th>URL</th>
-                    <th colspan="2">Actions</th>
-                </tr>
-
-                <!--Loop through all the jobs and make a Tuple for each one-->
-                {% for job in jobs %}
+            <!--Lets you scroll down so it does not break the layout-->
+            <div style="overflow-x: auto;">
+                <!--Table of all the jobs-->
+                <table>
+                    <!--Table headers-->
                     <tr>
-                        <td>{{job[1]}}</td>
-                        <td>{{job[2]}}</td>
-                        <td>{{job[3]}}</td>
-                        <td>{{job[4]}}</td>
-                        <td>{{job[5]}}</td>
-                        <td>{{job[6]}}</td>
-                        <td>
-                        {% if job[7] %}
-                            <a href="{{job[7]}}" target="_blank">Open</a>
-                        {% else %}
-                            No link
-                        {% endif %}
-                        </td>
-                        <td><a href = "/update/{{job[0]}}">Update</a></td>
-                        <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
+                        <th>Company</th>
+                        <th>Role</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th style="width: 120px;">Date Applied</th>
+                        <th style="width: 500px;">Notes</th>
+                        <th>URL</th>
+                        <th colspan="2">Actions</th>
                     </tr>
-                {% endfor %}
-            </table>
+
+                    <!--Loop through all the jobs and make a Tuple for each one-->
+                    {% for job in jobs %}
+                        <tr>
+                            <td>{{job[1]}}</td>
+                            <td>{{job[2]}}</td>
+                            <td>{{job[3]}}</td>
+                            <td>{{job[4]}}</td>
+                            <td>{{job[5]}}</td>
+                            <td>{{job[6]}}</td>
+                            <td>
+                            {% if job[7] %}
+                                <a href="{{job[7]}}" target="_blank">Open</a>
+                            {% else %}
+                                No link
+                            {% endif %}
+                            </td>
+                            <td><a href = "/update/{{job[0]}}">Update</a></td>
+                            <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+
+                        <td colspan = "9" style = "text-align: center;">
+
+                            <div class = "button-add-job">
+                                <!--Add a job button-->
+                                <a href = "/add">Add Job</a>
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+            </div>
         </div>
 
         <div class = "button">

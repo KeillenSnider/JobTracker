@@ -203,20 +203,37 @@ body {
 @media(max-width: 750px){
 
     .container-table{
+
         width: 100%;
+
         box-sizing: border-box;
+        
     }
 
     .sort-table-box{
+
         width: 100%;
+
         box-sizing: border-box;
+
     }
 
     h1{
+
         white-space: normal;
+
         word-wrap: break-word;
+
     }
-    
+
+    .button-add-job a{
+
+        padding: 14px 20px;
+
+        font-size: 1.1em;
+
+    }
+
 
 }
 

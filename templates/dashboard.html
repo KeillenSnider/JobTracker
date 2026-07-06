@@ -1,13 +1,12 @@
 <!--Code for the Dashboard page-->
 
-
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 
 <head>
-    
+
     <!--Used to have the most amount characters so everyone can view it-->
-    <meta charset = "UTF-8">
+    <meta charset="UTF-8">
 
     <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,106 +17,93 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <!--Connects the file to the css file that has the styles-->
-    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-    <div class = "dash-wrapper">
+    <h1>Welcome to Job Tracker, {{username}}</h1>
 
-        <div class = "fit-content">
+    <button id="dark-mode-toggle">Dark Mode Toggle</button>
 
-            <h1>Welcome to Job Tracker, {{username}}</h1>
+    <div class="container-table">
+        <!--Header for the dashboard page with there name-->
+        <h2 style="margin-bottom: 30px;">Job Applications</h2>
 
-            <button id = "dark-mode-toggle">Dark Mode Toggle</button>
+        <!--Message if no jobs are available-->
+        {% if not jobs %}
+            <p>No jobs yet. Add your first job!</p>
+        {% endif %}
 
+        <div class="sort-table-box">
 
-            <div class = "container-table">
-                <!--Header for the dashboard page with there name-->
-                <h2 style = "margin-bottom: 30px;">Job Applications</h2>
+            <div class="sort-box">
+                <h3>Sort options: </h3>
 
-                <!--Message if no jobs are available-->
-                {% if not jobs %}
-                    <p>No jobs yet. Add your first job!</p>
-                {% endif %}
-
-
-                <div class = "sort-table-box">
-
-                    <div class = "sort-box">
-                        <h3>Sort options: </h3>
-
-                        <div class = "sort-buttons">
-                            <a href = "/dashboard?sort=1">Date Applied</a>
-                            <a href = "/dashboard?sort=2">Company</a>
-                            <a href = "/dashboard?sort=3">Status</a>
-                            <a href = "/dashboard?sort=4">Order Added</a>
-                        </div>
-                    </div>
-
-                    <!--Lets you scroll down so it does not break the layout-->
-                    <div style ="overflow-x: auto;">
-                        <!--Table of all the jobs-->
-                            <table>
-                            <!--Table headers-->
-                            <tr>
-                                <th>Company</th>
-                                <th>Role</th>
-                                <th>Location</th>
-                                <th>Status</th>
-                                <th style="width: 120px;">Date Applied</th>
-                                <th style="width: 500px;">Notes</th>
-                                <th>URL</th>
-                                <th colspan="2">Actions</th>
-                            </tr>
-
-                            <!--Loop through all the jobs and make a Tuple for each one-->
-                            {% for job in jobs %}
-                                <tr>
-                                    <td>{{job[1]}}</td>
-                                    <td>{{job[2]}}</td>
-                                    <td>{{job[3]}}</td>
-                                    <td>{{job[4]}}</td>
-                                    <td>{{job[5]}}</td>
-                                    <td>{{job[6]}}</td>
-                                    <td>
-                                    {% if job[7] %}
-                                        <a href="{{job[7]}}" target="_blank">Open</a>
-                                    {% else %}
-                                        No link
-                                    {% endif %}
-                                    </td>
-                                    <td><a href = "/update/{{job[0]}}">Update</a></td>
-                                    <td><a href = "/delete/{{job[0]}}" onclick = "return confirm('Are you sure you want to delete this job?')">Delete</a></td>
-                                </tr>
-                            {% endfor %}
-
-                            <tr>
-
-                                <td colspan = "9" style = "text-align: center;">
-
-                                    <div class = "button-add-job">
-                                        <!--Add a job button-->
-                                        <a href = "/add">Add Job</a>
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </table>
-                    </div>
+                <div class="sort-buttons">
+                    <a href="/dashboard?sort=1">Date Applied</a>
+                    <a href="/dashboard?sort=2">Company</a>
+                    <a href="/dashboard?sort=3">Status</a>
+                    <a href="/dashboard?sort=4">Order Added</a>
                 </div>
-
-                <div class = "button">
-                <!--Add a Logout button-->
-                <a href = "/logout">Logout</a>
-                </div>
-
             </div>
 
+            <!--Lets you scroll down so it does not break the layout-->
+            <div style="overflow-x: auto;">
+                <!--Table of all the jobs-->
+                <table>
+                    <!--Table headers-->
+                    <tr>
+                        <th>Company</th>
+                        <th>Role</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th style="width: 120px;">Date Applied</th>
+                        <th style="width: 500px;">Notes</th>
+                        <th>URL</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+
+                    <!--Loop through all the jobs and make a Tuple for each one-->
+                    {% for job in jobs %}
+                        <tr>
+                            <td>{{job[1]}}</td>
+                            <td>{{job[2]}}</td>
+                            <td>{{job[3]}}</td>
+                            <td>{{job[4]}}</td>
+                            <td>{{job[5]}}</td>
+                            <td>{{job[6]}}</td>
+                            <td>
+                                {% if job[7] %}
+                                    <a href="{{job[7]}}" target="_blank">Open</a>
+                                {% else %}
+                                    No link
+                                {% endif %}
+                            </td>
+                            <td><a href="/update/{{job[0]}}">Update</a></td>
+                            <td><a href="/delete/{{job[0]}}" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+
+                    <tr>
+                        <td colspan="9" style="text-align: center;">
+                            <div class="button-add-job">
+                                <!--Add a job button-->
+                                <a href="/add">Add Job</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
         </div>
+
+        <div class="button">
+            <!--Add a Logout button-->
+            <a href="/logout">Logout</a>
+        </div>
+
     </div>
 
     <script>
@@ -129,23 +115,23 @@
 
         //find the element dark mode and listen for a click
         document.getElementById("dark-mode-toggle").addEventListener("click", function() {
-            
+
             //Change it to what the oppisite is
             document.body.classList.toggle("dark");
 
             //If it is dark then set as dark
             if (document.body.classList.contains("dark")) {
                 localStorage.setItem("theme", "dark");
-            } 
-            
+            }
+
             //It is light so make the colors root
             else {
                 localStorage.setItem("theme", "light");
             }
-            
+
         });
 
     </script>
-    
+
 </body>
 </html>

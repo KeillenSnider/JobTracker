@@ -202,72 +202,15 @@ body {
 
 @media(max-width: 750px){
 
-  /* Center and fit everything */
-  .dash-wrapper, .fit-content {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 10px;
-  }
+    .container-table{
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-  /* Headings */
-  h1, h2 {
-    font-size: 1.3em;
-    white-space: normal;
-    margin-bottom: 15px;
-  }
-
-  /* Dark mode toggle */
-  #dark-mode-toggle {
-    display: block;
-    margin: 10px auto;
-    font-size: 0.9em;
-    padding: 8px 12px;
-  }
-
-  /* Sort section */
-  .sort-table-box, .sort-box {
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-    text-align: center;
-  }
-
-  .sort-buttons a {
-    display: block;
-    width: 90%;
-    margin: 6px auto;
-    padding: 8px;
-    font-size: 0.9em;
-  }
-
-  /* Table */
-  .container-table {
-    width: 100%;
-    margin: 15px auto;
-    padding: 10px;
-    overflow-x: auto;
-  }
-
-  table {
-    width: 650px; /* keeps columns readable */
-    font-size: 0.8em;
-    margin: 0 auto;
-  }
-
-  th, td {
-    padding: 6px;
-    white-space: nowrap;
-  }
-
-  /* Buttons */
-  .button a, .button-add-job a {
-    display: block;
-    width: 90%;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 0.9em;
-  }
+    .sort-table-box{
+        width: 100%;
+        box-sizing: border-box;
+    }
 
 }
 

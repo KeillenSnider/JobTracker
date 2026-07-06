@@ -228,9 +228,11 @@ body {
 
     .button-add-job a{
 
-        padding: 14px 60px;
+        display: block;
 
-        font-size: 1.1em;
+        width: 60%;
+
+        margin: 10px auto;
 
     }
 
@@ -282,6 +284,8 @@ td {
     color: var(--text-primary);
 
     border: 1px solid var(--border);
+
+    overflow-wrap: break-word;
 
 }
 

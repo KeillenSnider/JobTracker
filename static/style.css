@@ -200,9 +200,17 @@ body {
 
 }
 
-.fit-content{
+@media(max-width: 750px){
 
-    width: fit-content;
+    .fit-content{
+
+        width: fit-content;
+
+        margin: 0 auto;
+
+        text-align: center;
+
+    }
 
 }
 

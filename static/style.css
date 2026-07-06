@@ -210,6 +210,10 @@ body {
 
         text-align: center;
 
+        transform: scale(0.6);
+
+        transform-origin: top center;
+
     }
 
 }

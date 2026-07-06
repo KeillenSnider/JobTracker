@@ -202,7 +202,23 @@ body {
 
 @media(max-width: 750px){
 
-    .fit-content{
+    .dash-wrapper {
+
+        display: flex;
+
+        justify-content: center;
+
+        width: 100%;
+
+        transform: scale(0.75);
+
+        transform-origin: top center;
+
+        padding: 0 10px;
+
+    }
+
+    .fit-content {
 
         width: fit-content;
 
@@ -212,17 +228,23 @@ body {
 
     }
 
-    .dash-wrapper{
+    .container-table {
 
-        display: flex;
-
-        justify-content: center;
-        
         width: 100%;
-        
-        transform: scale(0.8);
 
-        transform-origin: top center;
+        max-width: 100%;
+
+        overflow-x: auto;
+
+        padding: 0 10px;
+
+    }
+
+    table {
+
+        width: 100%;
+
+        min-width: 600px;
 
     }
 

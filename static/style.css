@@ -114,7 +114,7 @@ h1{
 
     h1.dash-title{
 
-        padding: 0 100px;
+        padding: 0 150x;
 
     }
 
@@ -538,6 +538,8 @@ button:hover{
         display: block;
 
         margin: 10px auto;
+
+        padding: 10px 150x;
 
     }
 

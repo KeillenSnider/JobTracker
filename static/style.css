@@ -255,6 +255,8 @@ table {
 
     margin-bottom: 30px;
 
+    table-layout: fixed;
+
 }
 
 /*Table headers*/

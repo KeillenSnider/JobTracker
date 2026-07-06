@@ -207,7 +207,7 @@ body {
         width: 100%;
 
         box-sizing: border-box;
-        
+
     }
 
     .sort-table-box{
@@ -228,7 +228,7 @@ body {
 
     .button-add-job a{
 
-        padding: 14px 20px;
+        padding: 14px 60px;
 
         font-size: 1.1em;
 

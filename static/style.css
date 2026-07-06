@@ -110,16 +110,6 @@ h1{
 
 }
 
-@media(max-width: 750px){
-
-    h1.dash-title{
-
-        padding: 0 150x;
-
-    }
-
-}
-
 
 /*_______________________________________________________________________________________________________________________*/
 
@@ -205,6 +195,12 @@ body {
     padding: 10px;
 
     margin-bottom: 30px;
+
+    width: fit-content;
+
+}
+
+.fit-content{
 
     width: fit-content;
 
@@ -538,8 +534,6 @@ button:hover{
         display: block;
 
         margin: 10px auto;
-
-        padding: 10px 150x;
 
     }
 

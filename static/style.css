@@ -161,7 +161,7 @@ body {
 
     background: var(--bg-secondary);
 
-    max-width: 1000px;
+    width: fit-content;
 
     margin: 40px auto;
 
@@ -503,6 +503,22 @@ button:hover{
 #dark-mode-toggle:hover{
     border: 2px solid rgb(190, 165, 165);
 }
+
+@media(max-width: 750px){
+
+    #dark-mode-toggle{
+
+        width: auto;
+
+        /*Makes it stay on one line*/
+        white-space: nowrap;
+
+        font-size: 0.85em;
+
+    }
+
+}
+
 
 /*_______________________________________________________________________________________________________________________*/
 

@@ -513,7 +513,19 @@ button:hover{
         /*Makes it stay on one line*/
         white-space: nowrap;
 
+        /*Makes the font smaller for a phone*/
         font-size: 0.85em;
+
+
+        position: relative;
+
+        top: auto;
+
+        left: auto;
+
+        display: block;
+
+        margin: 10px;
 
     }
 

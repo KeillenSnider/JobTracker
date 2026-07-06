@@ -203,49 +203,34 @@ body {
 @media(max-width: 750px){
 
     .dash-wrapper {
-
         display: flex;
-
         justify-content: center;
-
         width: 100%;
-
         transform: scale(0.75);
-
         transform-origin: top center;
-
         padding: 0 10px;
-
     }
 
     .fit-content {
-
         width: fit-content;
-
         margin: 0 auto;
-
         text-align: center;
-
     }
 
     .container-table {
-
         width: 100%;
-
         max-width: 100%;
-
-        overflow-x: auto;
-
         padding: 0 10px;
+    }
 
+    .table-scroll {
+        overflow-x: auto;
+        width: 100%;
     }
 
     table {
-
         width: 100%;
-
         min-width: 600px;
-
     }
 
 }

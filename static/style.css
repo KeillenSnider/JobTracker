@@ -210,10 +210,6 @@ body {
 
         text-align: center;
 
-        transform: scale(0.6);
-
-        transform-origin: top center;
-
     }
 
     .dash-wrapper{
@@ -221,10 +217,12 @@ body {
         display: flex;
 
         justify-content: center;
+        
+        width: 100%;
+        
+        transform: scale(0.6);
 
-        height: auto;
-
-        padding: 0 200px;
+        transform-origin: top center;
 
     }
 

@@ -112,9 +112,9 @@ h1{
 
 @media(max-width: 750px){
 
-    h1{
+    h1.dash-title{
 
-        padding: 0 40px;
+        padding: 0 100px;
 
     }
 

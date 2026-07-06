@@ -243,6 +243,26 @@ body {
     white-space: normal;
   }
 
+  h2 {
+    text-align: center;
+  }
+
+  .button {
+    text-align: center;
+  }
+
+  .button a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .notes-col {
+    width: 20%;        /* give Notes half the table width */
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
 }
 
 /*_______________________________________________________________________________________________________________________*/

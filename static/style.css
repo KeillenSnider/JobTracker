@@ -202,66 +202,79 @@ body {
 
 @media(max-width: 750px){
 
-    html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-  }
+  /* Center everything inside the dashboard */
+    .dash-wrapper,
+    .fit-content {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
 
-  .dash-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100vh; /* fills the entire screen */
-    transform: none; /* remove scaling */
-    padding: 0;
-    margin: 0;
-  }
+    /* Make the table container fit the screen */
+    .container-table {
+        width: 100%;
+        padding: 15px;
+        margin: 20px auto;
+        text-align: center;
+    }
 
-  .fit-content {
-    width: 100%;
-    text-align: center;
-  }
+    /* Sort box centered and full width */
+    .sort-table-box,
+    .sort-box {
+        width: 100%;
+        margin: 10px auto;
+        padding: 10px;
+        text-align: center;
+    }
 
-  .container-table {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    padding: 0 10px;
-  }
+    /* Sort buttons stack and center */
+    .sort-buttons a {
+        display: block;
+        width: 90%;
+        margin: 8px auto;
+        padding: 10px;
+        text-align: center;
+        font-size: 0.9em;
+    }
 
-  table {
-    width: 100%;
-    table-layout: auto;
-  }
+    /* Table scrolls horizontally but stays centered */
+    table {
+        width: 700px; /* keeps structure intact */
+        margin: 0 auto;
+        font-size: 0.85em;
+    }
 
-  th, td {
-    word-wrap: break-word;
-    white-space: normal;
-  }
+    th, td {
+        padding: 6px;
+        white-space: nowrap;
+    }
 
-  h2 {
-    text-align: center;
-  }
+    /* Action buttons centered */
+    td a {
+        display: inline-block;
+        margin: 5px auto;
+        font-size: 0.8em;
+        padding: 6px 8px;
+    }
 
-  .button {
-    text-align: center;
-  }
+    /* Add Job + Logout buttons centered */
+    .button-add-job a,
+    .button a {
+        display: block;
+        width: 90%;
+        margin: 10px auto;
+        padding: 10px;
+        font-size: 0.9em;
+        text-align: center;
+    }
 
-  .button a {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-
-  .notes-col {
-    width: 20%;        /* give Notes half the table width */
-    white-space: normal;
-    word-wrap: break-word;
-  }
+    /* Headings readable and centered */
+    h1, h2 {
+        white-space: normal;
+        font-size: 1.4em;
+        text-align: center;
+    }
 
 }
 

@@ -173,6 +173,19 @@ def add_job(company,role,location,status,date_applied,notes,url, user_id = None)
     connection.close()
 
 
+
+def get_job(job_id, user_id):
+
+    connection = psycopg2.connect(os.getenv("DATABASE_URL"))
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM jobs WHERE id = %s  AND user_id = %s", (job_id, user_id))
+    job = cursor.fetchone()
+    connection.close()
+    return job
+
+
+
 #This function will return all jobs in the table
 def get_all_jobs(sort_by = "4", user_id = None):
 

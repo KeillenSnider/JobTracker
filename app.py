@@ -204,7 +204,19 @@ def update(job_id):
         return redirect(url_for('dashboard'))
 
     #Show the update page if it is a GET and pass the job id to a variable that can be used in update
-    return render_template('update.html', job_id = job_id)
+    #Adding show information if they have it
+
+    #Get user id
+    user = database_web.get_user(session['username'])
+    user_id = user[0]
+
+    job = database_web.get_job(job_id, user_id)
+
+    if job:
+
+        return render_template('update.html', job_id = job_id, status = job[4], notes = job[6], url = job[7])
+
+    return redirect(url_for('dashboard'))
 
 
 

@@ -202,10 +202,11 @@ body {
 
 @media(max-width: 750px){
 
-    body {
+    html, body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* stops horizontal scroll */
+    height: 100%;
+    overflow-x: hidden;
   }
 
   .dash-wrapper {
@@ -214,9 +215,8 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    min-height: 100vh; /* fills the screen vertically */
-    transform: scale(0.85);
-    transform-origin: top center;
+    height: 100vh; /* fills the entire screen */
+    transform: none; /* remove scaling */
     padding: 0;
     margin: 0;
   }
@@ -236,6 +236,11 @@ body {
   table {
     width: 100%;
     table-layout: auto;
+  }
+
+  th, td {
+    word-wrap: break-word;
+    white-space: normal;
   }
 
 }

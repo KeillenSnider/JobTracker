@@ -202,16 +202,27 @@ body {
 
 @media(max-width: 750px){
 
-    .dash-wrapper {
+    body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* stops horizontal scroll */
+  }
+
+  .dash-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
-    padding: 0 10px;
+    min-height: 100vh; /* fills the screen vertically */
+    transform: scale(0.85);
+    transform-origin: top center;
+    padding: 0;
+    margin: 0;
   }
 
   .fit-content {
     width: 100%;
-    margin: 0 auto;
     text-align: center;
   }
 
@@ -224,18 +235,7 @@ body {
 
   table {
     width: 100%;
-    border-collapse: collapse;
-    table-layout: auto; /* allows columns to shrink */
-  }
-
-  th, td {
-    word-wrap: break-word;
-    white-space: normal;
-  }
-
-  th:nth-child(6),
-  td:nth-child(6) {
-    width: auto; /* removes fixed 500px Notes column */
+    table-layout: auto;
   }
 
 }

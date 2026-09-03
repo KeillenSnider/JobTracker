@@ -65,6 +65,15 @@
                         <th colspan="2" style = "width: 200px;">Actions</th>
                     </tr>
 
+                    <tr>
+                        <td colspan="9" style="text-align: center;">
+                            <div class="button-add-job">
+                                <!--Add a job button-->
+                                <a href="/add">Add Job</a>
+                            </div>
+                        </td>
+                    </tr>
+
                     <!--Loop through all the jobs and make a Tuple for each one-->
                     {% for job in jobs %}
                         <tr>
@@ -85,15 +94,6 @@
                             <td><a href="/delete/{{job[0]}}" onclick="return confirm('Are you sure you want to delete this job?')">Delete</a></td>
                         </tr>
                     {% endfor %}
-
-                    <tr>
-                        <td colspan="9" style="text-align: center;">
-                            <div class="button-add-job">
-                                <!--Add a job button-->
-                                <a href="/add">Add Job</a>
-                            </div>
-                        </td>
-                    </tr>
 
                 </table>
             </div>

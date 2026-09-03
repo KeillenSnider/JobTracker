@@ -199,14 +199,14 @@ def get_all_jobs(sort_by = "4", user_id = None):
     if sort_by == "1":
         cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY date_applied ASC", (user_id,))
     elif sort_by == "2":
-        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY company ASC", (user_id,))
+        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY LOWER(TRIM(company)) ASC", (user_id,))
     elif sort_by == "3":
         cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY status ASC", (user_id,))
     elif sort_by == "4":
-        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY id ASC", (user_id,))
+        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY id DESC", (user_id,))
     else:
         print("Invalid sort option. Defaulting to sorting by ID.")
-        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY id ASC", (user_id,))
+        cursor.execute("SELECT * FROM jobs WHERE user_id = %s ORDER BY id DESC", (user_id,))
 
 
     #Now get the table from jobs
